@@ -14,6 +14,8 @@ def clear_spot(sensorID, db_cursor):
     logging.info(sql)
     db_cursor.execute(sql)
     plate_list = db_cursor.fetchall()
+    if len(plate_list) < 1:
+        return
     plate = plate_list[0][0]
     sql = "INSERT INTO parking_spots (SPOT_ID, PLATE, OCCUPIED) VALUES (%s, %s, %s)"
     val = (sensorID, plate,0)
@@ -22,7 +24,7 @@ def clear_spot(sensorID, db_cursor):
 
 def occupy_spot(sensorID, image_path, db_cursor):
     logging.info("Sensor " + sensorID + " detected car entering the spot. Setting spot state to occupied")
-    plate = ""
+    plate = "N/A"
     abs_path = os.path.abspath(image_path)
     if os.path.exists(abs_path):
         logging.info("File exists at path: " + abs_path)
@@ -35,14 +37,19 @@ def occupy_spot(sensorID, image_path, db_cursor):
     # maybe double delay
     # check every 5 min if car is parked and retake photo every 10-15 min
     # to see if it's the same car
-    logging.info("Sensor " + sensorID + " detected the car changed. Updating spot state")
-    sql = "SELECT PLATE FROM parking_spots WHERE SPOT_ID='"+sensorID+"' ORDER BY TIME DESC LIMIT 1"
+    sql = "SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='"+sensorID+"' ORDER BY TIME DESC LIMIT 1"
     logging.info(sql)
     db_cursor.execute(sql)
     existing_plate_list = db_cursor.fetchall()
-    if existing_plate_list:
+    if len(existing_plate_list) > 0:
         existing_plate = existing_plate_list[0][0]
-        if existing_plate != plate:
+        occupied = existing_plate_list[0][1]
+        print("Existing:" + existing_plate)
+        print("New:" + plate)
+        print("Occupied: " + str(occupied))
+        if existing_plate != plate and occupied == 1:
+            print("Plates do not match... Car has changed")
+            logging.info("Sensor " + sensorID + " detected the car changed. Updating spot state")
             sql = "INSERT INTO parking_spots (SPOT_ID, PLATE, OCCUPIED) VALUES (%s, %s, %s)"
             val = (sensorID, existing_plate,0)
             db_cursor.execute(sql, val)

@@ -1,0 +1,133 @@
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.07_18:26:09_istockphoto-467294055-612x612.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.07_18:26:09_istockphoto-467294055-612x612.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.07_18:26:09_istockphoto-467294055-612x612.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.07_18:26:09_istockphoto-467294055-612x612.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.07_18:26:09_istockphoto-467294055-612x612.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.07_18:26:09_istockphoto-467294055-612x612.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Found plate: 'N/A'
+
+INFO:root:Sensor 0 detected the car changed. Updating spot state
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Cleared spot 0 from car with plate [N/A]
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Cleared spot 0 from car with plate [N/A]
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.07_18:26:09_istockphoto-467294055-612x612.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.07_18:26:09_istockphoto-467294055-612x612.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Found plate: 'N/A'
+
+INFO:root:Sensor 0 detected the car changed. Updating spot state
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.07_18:26:09_istockphoto-467294055-612x612.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.07_18:26:09_istockphoto-467294055-612x612.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Found plate: 'N/A'
+
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 0 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.07_18:47:49_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.07_18:47:49_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Found plate: 'N/A'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='0' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 123 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.07_18:47:49_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.07_18:47:49_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Found plate: 'N/A'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='123' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 123 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.07_18:47:49_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.07_18:47:49_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Found plate: 'N/A'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='123' ORDER BY TIME DESC LIMIT 1
+INFO:root:Sensor 123 detected the car changed. Updating spot state
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 123 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.07_18:47:49_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.07_18:47:49_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Found plate: 'N/A'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='123' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 123 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.07_18:47:49_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.07_18:47:49_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Found plate: 'N/A'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='123' ORDER BY TIME DESC LIMIT 1

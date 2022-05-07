@@ -1,6 +1,4 @@
-import json
 import requests
-#import json
 import re
 import logging
 
@@ -81,6 +79,8 @@ def extract_data_from_response(response):
     data = response.json()
     
     results = data['results']
+    if len(results) < 1:
+        return "N/A"
     map = results[0]
     plate = map['plate']
 
@@ -108,7 +108,7 @@ def parse_image(imagePath):
 
     headers = {
     'Authorization': 'Token 2b207ee6b788bf0904351b831614f53ffb3dcfa1',
-}
+    }
 
     files = {
         'upload': (imagePath, open(imagePath, 'rb')),
@@ -134,4 +134,4 @@ def process(path):
         return plate
     
     logging.info("No plate was found\n")
-    return ""
+    return "N/A"
