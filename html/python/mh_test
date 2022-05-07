@@ -1,0 +1,49 @@
+{
+    "processing_time": 130.028,
+    "results": [
+        {"box": {
+            "xmin": 728,
+            "ymin": 716, 
+            "xmax": 1378, 
+            "ymax": 885
+        }, 
+        "plate": "mh14w0w",
+        "region": {
+            "code": "ro", 
+            "score": 0.73
+        }, "score": 0.897, 
+        "candidates": [
+                {
+                "score": 0.897, 
+                "plate": "mh14w0w"
+                }, 
+                {
+                "score": 0.895,
+                "plate": "mh14wow"},
+                {
+                "score": 0.775, 
+                "plate": "mhi4w0w"
+                }, 
+                {
+                "score": 0.773, 
+                "plate": "mhi4wow"
+                }
+            ],
+            "dscore": 0.842, 
+            "vehicle": {
+                "score": 0.723, 
+                "type": "Sedan", 
+                "box": {
+                    "xmin": 63, 
+                    "ymin": 13, 
+                    "xmax": 1857, 
+                    "ymax": 1039
+                }
+            }
+        }
+    ], 
+    "filename": "1041_uLTVA_2022.04.12_132050_mh_nr.jpg", 
+    "version": "1", 
+    "camera_id": "None", 
+    "timestamp": "2022-04-12T10:41:20.041963Z"
+}
