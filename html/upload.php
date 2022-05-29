@@ -49,10 +49,12 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 }
 else {
+  // Upload the received file to the path at $target_file
   if (move_uploaded_file($_FILES["imageFile"]["tmp_name"], $target_file)) {
     echo "The file ". basename( $_FILES["imageFile"]["name"]). " has been uploaded.\n";
     echo "\nStarting image processing for the uploaded file\n";
-  
+    
+    // Call the python script for image processing and save the response in $message
     $message = exec("python3 /var/www/html/python/update_db.py $sensorID $occupied $target_file 2>&1");
     echo "\nOUTPUT:\n";
     $output = print_r($message, true);
