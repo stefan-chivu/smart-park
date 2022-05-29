@@ -1,36 +1,23 @@
 #include "esp_camera.h"
 #include <WiFi.h>
 
-//
-// WARNING!!! PSRAM IC required for UXGA resolution and high JPEG quality
-//            Ensure ESP32 Wrover Module or other board with PSRAM is selected
-//            Partial images will be transmitted if image exceeds buffer size
-//
-
-// Select camera model
-//#define CAMERA_MODEL_WROVER_KIT // Has PSRAM
-//#define CAMERA_MODEL_ESP_EYE // Has PSRAM
-//#define CAMERA_MODEL_M5STACK_PSRAM // Has PSRAM
-//#define CAMERA_MODEL_M5STACK_V2_PSRAM // M5Camera version B Has PSRAM
-//#define CAMERA_MODEL_M5STACK_WIDE // Has PSRAM
-//#define CAMERA_MODEL_M5STACK_ESP32CAM // No PSRAM
 #define CAMERA_MODEL_AI_THINKER // Has PSRAM
-//#define CAMERA_MODEL_TTGO_T_JOURNAL // No PSRAM
 
 #include "camera_pins.h"
 
-const char* ssid = "Ioana";
-const char* password = "gwda3670";
+const char* ssid = "schivu-laptop";
+const char* password = "P@ssw0rd!123";
 
+// DNS that points to the server
 String serverName = "smart-park.go.ro";
 String serverPath = "/upload.php";
-const int serverPort = 80;
-const int sensorID = 1;
+const int serverPort = 80; // port for the camera upload request
+const int sensorID = 1; // hardcoded ID of the device
 
 const int pingPin = 12; // Trigger Pin of Ultrasonic Sensor
 const int echoPin = 13; // Echo Pin of Ultrasonic Sensor
-const int redLed = 15;
-const int greenLed = 14;
+const int redLed = 15; // Red LED pin
+const int greenLed = 14; // Green LED pin
 
 void startCameraServer();
 String sendPhoto();
@@ -103,12 +90,13 @@ void setup() {
   s->set_hmirror(s, 1);
 #endif
 
-  WiFi.begin(ssid, password);
+  WiFi.begin(ssid, password); // Connect to the network
 
-  while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED) { // Wait until connection is established
     delay(500);
     Serial.print(".");
   }
+
   Serial.println("");
   Serial.println("WiFi connected");
 
@@ -118,84 +106,117 @@ void setup() {
   Serial.print(WiFi.localIP());
   Serial.println("' to connect");
 
+  // Set all the required GPIO pin modes to output
   pinMode(pingPin, OUTPUT);
   pinMode(echoPin, INPUT);
   pinMode(redLed, OUTPUT);
   pinMode(greenLed, OUTPUT);
 }
 
-boolean detectedCar(){
-  return false;
-}
-
+// sound travels 1cm in aproximately 29us, back and forth
 long microsecondsToCentimeters(long microseconds) {
    return microseconds / 29 / 2;
 }
 
 int readSensor(){
-   long duration, inches, cm;
+   long duration, cm;
    
    digitalWrite(pingPin, LOW);
    delayMicroseconds(2);
+   // Send a 10us long 40KHz pulse from the transmitter
    digitalWrite(pingPin, HIGH);
    delayMicroseconds(10);
    digitalWrite(pingPin, LOW);
+
+   // send HIGH pulse to echo pin to listen for bounce back and measure the duration
    duration = pulseIn(echoPin, HIGH);
+
+   // convert the duration to cm knowing that sound travels at 340m/s
    cm = microsecondsToCentimeters(duration);
    Serial.println("Sensor reading: " + String(cm) + "cm");
 
    return cm;
 }
-int state = 0;
+
+int state = 0; // initial state is empty
 int second = 1000;
 int minute = 60 * second;
 
+// if a car is parked, check spot state every 5 minutes
 int parkedDelay = 5 * minute;
+// if no car is parked, check spot state every 10 seconds
 int freeDelay = 10 * second;
+// increment state check intervals to check for car changes
 int intervalCount = 0;
+
 int distance = 0;
 
 void loop() {
+  // read the distance measured by the sonar
   distance = readSensor();
-  if (distance != 0) {
+  
+  if (distance != 0) { // if the distance is 0, there could be a hardware issue regarding the sonar
     if(state == 0){
+      // if the spot is empty, turn on the green led
       digitalWrite(greenLed, HIGH);
       
+      // if an object gets closer than 100cm, trigger the occupation of the spot
       if(distance <= 100){
         Serial.println("Spot ID: " + String(sensorID) + " has been occupied. Sending capture...");
+
+        // reset the ocupation interval count
         intervalCount = 0;
         
+        // turn off the green led
         digitalWrite(greenLed, LOW);
+        // turn on the red led to mark the spot as occupied
         digitalWrite(redLed, HIGH);
+
+        // set the state to 1 (occupied)
         state = 1;
+        // take a photo and send it to the server
         sendPhoto();
+        // wait for 5 minutes to check the spot again
         delay(parkedDelay);
       }else{
+        // the spot is still empty, so we wait for 10s to check again
         Serial.println("Spot ID: " + String(sensorID) + " is still free.");
         delay(freeDelay);
       }
     }else{
+      // if the spot is occupied, turn on the red led 
       digitalWrite(redLed, HIGH);
       
+      // if the sonar reads more than 100cm, mark the spot as vacant
       if(distance > 100){
         Serial.println("Spot ID: " + String(sensorID) + " has been freed. Sending capture...");
+        // set the occupancy status to 0
         state = 0;
         digitalWrite(greenLed, HIGH);
         digitalWrite(redLed, LOW);
+
+        // send a photo with the empty spot
         sendPhoto();
+        // start waiting for 10s
         delay(freeDelay);  
       }else{
         Serial.println("Spot ID: " + String(sensorID) + " is still occupied.");
+        // if the spot has been occupied for three consecutive parking intervals (15 min)
+        // check if the parked car is the same
         if(intervalCount >= 2){
           Serial.println("Checking for car change at spot ID: " + String(sensorID) + " ; Sending capture...");
+          // send a photo and let the server decide if the plate of the car is the same
           sendPhoto();
+          // start counting for another 3 intervals
           intervalCount = 0;
         }
+        // increment the interval number
         intervalCount++;
-        delay(parkedDelay);
+        delay(parkedDelay); // wait 5 min until next check
       }
     }
   } else{
+    // if the sonar is reading 0cm, a hardware issue may have occured
     Serial.println("Sensor is reading 0cm - check for hardware issues");
     delay(2000);
   }
@@ -206,6 +227,7 @@ String sendPhoto() {
   String getBody;
 
   camera_fb_t * fb = NULL;
+  // take photo
   fb = esp_camera_fb_get();
   if(!fb) {
     Serial.println("Camera capture failed");
@@ -215,7 +237,9 @@ String sendPhoto() {
   
   Serial.println("Connecting to server: " + serverName);
 
+  // Establish a connection to the backend server
   if (client.connect(serverName.c_str(), serverPort)) {
+    // Start building the POST request containing the camera capture
     Serial.println("Connection successful!");    
     String head = "--ESP32CAM\r\nContent-Disposition: form-data; name=\"imageFile\"; filename=\"esp32-cam.jpg\"\r\nContent-Type: image/jpeg\r\n\r\n";
     String tail = "\r\n--ESP32CAM--\r\n";
