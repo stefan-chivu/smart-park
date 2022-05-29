@@ -23,6 +23,7 @@ def clear_spot(sensorID, db_cursor):
     logging.info("Cleared spot " + sensorID + " from car with plate [" + plate.upper() + "]")
 
 def occupy_spot(sensorID, image_path, db_cursor):
+    inserted = False
     logging.info("Sensor " + sensorID + " detected car entering the spot. Setting spot state to occupied")
     plate = "N/A"
     abs_path = os.path.abspath(image_path)
@@ -44,20 +45,23 @@ def occupy_spot(sensorID, image_path, db_cursor):
     if len(existing_plate_list) > 0:
         existing_plate = existing_plate_list[0][0]
         occupied = existing_plate_list[0][1]
-        print("Existing:" + existing_plate)
-        print("New:" + plate)
-        print("Occupied: " + str(occupied))
-        if existing_plate != plate and occupied == 1:
-            print("Plates do not match... Car has changed")
-            logging.info("Sensor " + sensorID + " detected the car changed. Updating spot state")
-            sql = "INSERT INTO parking_spots (SPOT_ID, PLATE, OCCUPIED) VALUES (%s, %s, %s)"
-            val = (sensorID, existing_plate,0)
-            db_cursor.execute(sql, val)
-            time.sleep(3)
-
-    sql = "INSERT INTO parking_spots (SPOT_ID, PLATE, OCCUPIED) VALUES (%s, %s, %s)"
-    val = (sensorID, plate,1)
-    db_cursor.execute(sql, val)
+        if occupied == 1:
+            print("Existing:" + existing_plate)
+            print("New:" + plate)
+            print("Occupied: " + str(occupied))
+            if existing_plate != plate:
+                print("Plates do not match... Car has changed")
+                logging.info("Sensor " + sensorID + " detected the car changed. Updating spot state")
+                sql = "INSERT INTO parking_spots (SPOT_ID, PLATE, OCCUPIED) VALUES (%s, %s, %s)"
+                val = (sensorID, existing_plate,0)
+                db_cursor.execute(sql, val)
+                time.sleep(3)
+            else:
+                inserted = True
+    if not inserted:
+        sql = "INSERT INTO parking_spots (SPOT_ID, PLATE, OCCUPIED) VALUES (%s, %s, %s)"
+        val = (sensorID, plate,1)
+        db_cursor.execute(sql, val)
 
 
 

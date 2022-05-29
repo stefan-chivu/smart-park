@@ -97,3 +97,183 @@ INFO:root:Succesfully connected to database
 INFO:root:Sensor 123 detected car leaving the spot. Setting spot state to empty
 INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='123' ORDER BY TIME DESC LIMIT 1
 INFO:root:Cleared spot 123 from car with plate [N/A]
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 123 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_11:57:44_istockphoto-467294055-612x612.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_11:57:44_istockphoto-467294055-612x612.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Found plate: 'N/A'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='123' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_12:07:19_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_12:07:19_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Found plate: 'N/A'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Cleared spot 1 from car with plate [N/A]
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_12:10:04_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_12:10:04_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Found plate: 'N/A'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Cleared spot 1 from car with plate [N/A]
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_12:11:59_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_12:11:59_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Checking plate: 'tm21cxc'
+INFO:root:	Plate matches general pattern, checking county validity: 'TM'
+INFO:root:	Found match, plate is valid
+INFO:root:Found plate: 'tm21cxc'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_12:13:35_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_12:13:35_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Checking plate: 'tm21cxc'
+INFO:root:	Plate matches general pattern, checking county validity: 'TM'
+INFO:root:	Found match, plate is valid
+INFO:root:Found plate: 'tm21cxc'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_12:14:37_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_12:14:37_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Checking plate: 'tm21cxc'
+INFO:root:	Plate matches general pattern, checking county validity: 'TM'
+INFO:root:	Found match, plate is valid
+INFO:root:Found plate: 'tm21cxc'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_12:21:29_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_12:21:29_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Checking plate: 'tm21cxc'
+INFO:root:	Plate matches general pattern, checking county validity: 'TM'
+INFO:root:	Found match, plate is valid
+INFO:root:Found plate: 'tm21cxc'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_12:23:02_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_12:23:02_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Checking plate: 'tm21cxc'
+INFO:root:	Plate matches general pattern, checking county validity: 'TM'
+INFO:root:	Found match, plate is valid
+INFO:root:Found plate: 'tm21cxc'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_12:26:19_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_12:26:19_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Checking plate: 'tm21cxc'
+INFO:root:	Plate matches general pattern, checking county validity: 'TM'
+INFO:root:	Found match, plate is valid
+INFO:root:Found plate: 'tm21cxc'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_12:27:55_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_12:27:55_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Checking plate: 'tm21cxc'
+INFO:root:	Plate matches general pattern, checking county validity: 'TM'
+INFO:root:	Found match, plate is valid
+INFO:root:Found plate: 'tm21cxc'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_12:37:35_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_12:37:35_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Checking plate: 'tm21cxc'
+INFO:root:	Plate matches general pattern, checking county validity: 'TM'
+INFO:root:	Found match, plate is valid
+INFO:root:Found plate: 'tm21cxc'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_12:53:28_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_12:53:28_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Checking plate: 'tm21cxc'
+INFO:root:	Plate matches general pattern, checking county validity: 'TM'
+INFO:root:	Found match, plate is valid
+INFO:root:Found plate: 'tm21cxc'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Cleared spot 1 from car with plate [TM21CXC]
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car entering the spot. Setting spot state to occupied
+INFO:root:File exists at path: /var/www/html/uploads/2022.05.14_13:00:19_esp32-cam.jpg
+INFO:root:Starting new image processing for image at path: '/var/www/html/uploads/2022.05.14_13:00:19_esp32-cam.jpg'
+INFO:root:Received response from Plate Recognizer:
+INFO:root:<Response [201]>
+INFO:root:Checking plate: 'tm11mlg'
+INFO:root:	Plate matches general pattern, checking county validity: 'TM'
+INFO:root:	Found match, plate is valid
+INFO:root:Found plate: 'tm11mlg'
+
+INFO:root:SELECT PLATE, OCCUPIED FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Attempting connection to database
+INFO:root:Succesfully connected to database
+INFO:root:Sensor 1 detected car leaving the spot. Setting spot state to empty
+INFO:root:SELECT PLATE FROM parking_spots WHERE SPOT_ID='1' ORDER BY TIME DESC LIMIT 1
+INFO:root:Cleared spot 1 from car with plate [TM11MLG]
